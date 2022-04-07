@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number_position</title>
+    <style>
+        #Game {
+            display: none;
+        }
+        #Home {
+            display: ;
+        }
+        #Difficulty {
+            display: none;
+        }
+        #Instructions {
+            display: none;
+        }
+        #About {
+            display: none;
+        }
+    </style>
+    <style>
+        body {
+            background:-webkit-linear-gradient(left, rgba(39, 0, 39, 1.0) 25%, rgb(15, 25, 35) 50%, rgba(0, 0, 39, 1.0) 75%) ;
+            background:-ms-linear-gradient(left, rgba(39, 0, 39, 1.0) 25%, rgb(15, 25, 35) 50%, rgba(0, 0, 39, 1.0) 75%) ;
+            font-family: cursive, Arial;
+            text-shadow: ;
+            color: white;
+        }
+        header {
+            width: 100%;
+            height: 100%;
+            padding: 5px 0;
+            background:-webkit-linear-gradient(45deg, rgba(0, 51, 102, 1.0) 20%, rgba(20, 82, 20, 1.0) 80%);
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 51, 102, 1.0);
+        }
+        header h1 {
+            text-align: center;
+        }
+        #num1 {
+            position: relative;
+            top: 40px;
+            width: 40%;
+            border: none;
+            border-bottom: 2px rgba(0, 250, 250, 1.0) solid;
+            font-style: italic;
+            background-color:  rgba(0, 0, 0, 0);
+            color: white;
+            font-size: 20px;
+        }
+        #btn {
+            position: relative;
+            top: 40px;
+            left: 10px;
+            width: 6%;
+            height: 25px;
+            border: none;
+            border-radius: 3px;
+            background-color: rgba(218, 250, 250, 0.3);
+            color: white;
+        }
+        #btn:hover {
+            cursor: pointer;
+            background-color: white;
+            color: black;
+        }
+        td {
+            font-style: italic;
+            font-size: 20px;
+            padding: 0 5px;
+            border-color: #00ffdd;
+        }
+        td:hover {
+            color: #00ffdd;
+        }
+        th {
+            color: rgba(210, 210, 230, 1.0);
+        }
+        th:hover {
+            color: #66ff33;
+            cursor: default;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 60%;
+            position: relative;
+            left: 20%;
+            top: 60px;
+            text-align: center;
+
+        }
+        table {
+            border: none;
+            border-radius: 10px;
+        }
+        .back {
+            background-color: rgba(250, 250, 250, 0.2);
+            width: 60px;
+            height: 50px;
+            position: absolute;
+            top: 140px;
+            left: 100px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 900;
+            border-radius: 5px;
+
+        }
+        .back:hover {
+            cursor: pointer;
+            background-color: white;
+            color: black;
+        }
+        input:focus {
+            outline: none;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[tye=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <style>
+        .background {
+            width: 70%;
+            height: 350px;
+            background-color: rgba(250, 250, 250, 0.1);
+            color: white;
+            position: relative;
+            left: 15%;
+            top: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(77, 0, 77, 1.0);
+        }
+        #Game_background {
+            width: 70%;
+            height: 450px;
+            background-color: rgba(250, 250, 250, 0.1);
+            color: white;
+            position: relative;
+            left: 15%;
+            top: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+        .button {
+            background:-webkit-linear-gradient(left, rgba(255, 0, 0, 1.0) 0%, rgba(255, 3, 62, 1.0) 90%);
+            background:-ms-linear-gradient(left, rgba(255, 0, 0, 1.0) 0%, rgba(255, 3, 62, 1.0) 90%);
+            width: 15%;
+            height: 45px;
+            position: relative;
+            left: 40%;
+            top: 50px;
+            border: 1px rgba(250, 250, 250, 0) solid;
+            border-radius: 10px;
+            padding: 0px;
+            margin: 7px;
+            text-align: center;
+        }
+        .button:hover {
+            cursor: pointer;
+            color: red;
+            background: white;
+            border-color: white;
+        }
+        #About {
+            text-align: center;
+        }
+    </style>
+    <style>
+        .finish {
+            width: 40%;
+            height: 200px;
+            position: absolute;
+            left: 30%;
+            top: 200px;
+            background-color: black;
+            text-align: center;
+            display: none;
+        }
+        .finish p {
+            color: rgba(255, 80, 80, 1.0);
+            font-size: 25px;
+            padding: 5px 0;
+        }
+        .finish input {
+            background-color: rgba(255, 80, 80, 1.0);
+            color: rgba(0, 0, 51, 1.0);
+            border: none;
+            border-radius: 2px;
+            font-size: 15px;
+            width: 12%;
+            height: 25px;
+
+        }
+        .finish input:hover {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        @media screen and (max-width:640px) {
+            .button {
+                width: 40%;
+                left: 28.5%;
+            }
+            .background {
+                width: 100%;
+                left: 0;
+            }
+            #Game_background {
+                width: 100%;
+                left: 0;
+            }
+            .back {
+                left: 10px;
+                top: 55px;
+                background: rgba(0, 0, 0, 0);
+            }
+            table {
+                width: 90%;
+                left: 5%;
+            }
+            #btn {
+                width: 12%;
+            }
+            .finish {
+                width: 60%;
+                left: 20%;
+            }
+            .finish input {
+                width: 24%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Number Position</h1>
+</header>
+<div id="Game">
+<nav id="Game_background">
+<nav>
+    <form id="Input" method="get">
+        <input autofocus type="number" name="num1" id="num1">
+        <input id="btn" type="submit" value="Check">
+    </form>
+</nav>
+<nav>
+    <table>
+        <thead>
+        <tr>
+            <th>Attempt</th>
+            <th>Entered Number</th>
+            <th>Number</th>
+            <th>Position</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td id="atm1"></td>
+            <td id="res1"></td>
+            <td id="no1"></td>
+            <td id="pos1"></td>
+        </tr>
+        <tr>
+            <td id="atm2"></td>
+            <td id="res2"></td>
+            <td id="no2"></td>
+            <td id="pos2"></td>
+        </tr>
+        <tr>
+            <td id="atm3"></td>
+            <td id="res3"></td>
+            <td id="no3"></td>
+            <td id="pos3"></td>
+        </tr>
+        <tr>
+            <td id="atm4"></td>
+            <td id="res4"></td>
+            <td id="no4"></td>
+            <td id="pos4"></td>
+        </tr>
+        <tr>
+            <td id="atm5"></td>
+            <td id="res5"></td>
+            <td id="no5"></td>
+            <td id="pos5"></td>
+        </tr>
+        <tr>
+            <td id="atm6"></td>
+            <td id="res6"></td>
+            <td id="no6"></td>
+            <td id="pos6"></td>
+        </tr>
+        <tr>
+            <td id="atm7"></td>
+            <td id="res7"></td>
+            <td id="no7"></td>
+            <td id="pos7"></td>
+        </tr>
+        <tr>
+            <td id="atm8"></td>
+            <td id="res8"></td>
+            <td id="no8"></td>
+            <td id="pos8"></td>
+        </tr>
+        <tr>
+            <td id="atm9"></td>
+            <td id="res9"></td>
+            <td id="no9"></td>
+            <td id="pos9"></td>
+        </tr>
+        <tr>
+            <td id="atm10"></td>
+            <td id="res10"></td>
+            <td id="no10"></td>
+            <td id="pos10"></td>
+        </tr>
+        </tbody>
+    </table>
+</nav>
+</nav>
+    <nav class="back" onclick="showPage(Home)">
+        ←
+    </nav>
+</div>
+<div id="Home">
+<nav class="background">
+    <nav class="button" onclick="showPage(Game)">
+        <p>Play!</p>
+    </nav>
+    <nav class="button" onclick="showPage(Difficulty)">
+        <p>Difficulty</p>
+    </nav>
+    <nav class="button" onclick="showPage(Instructions)">
+        <p>Instructions</p>
+    </nav>
+    <nav class="button" onclick="showPage(About)">
+        <p>About this game</p>
+    </nav>
+</nav>
+</div>
+<div id="Difficulty">
+<nav class="background">
+    <nav class="button" onclick="Easy()">
+        <p>Easy</p>
+    </nav>
+    <nav class="button" onclick="Medium()">
+        <p>Medium</p>
+    </nav>
+    <nav class="button" onclick="Hard()">
+        <p>Hard</p>
+    </nav>
+</nav>
+    <nav class="back" onclick="showPage(Home)">
+        ←
+    </nav>
+</div>
+<div id="Instructions">
+<nav class="background">
+    <h3>Instructions</h3>
+    <ul>
+        <li>The basic idea of this game is to correctly guess a hidden 4 digit number.</li>
+        <li>At every attempt the computer gives back the amount of the numbers correctly guessed and how many of them are in correct position</li>
+        <li>
+            "Number" represents the amount of correctly guessed numbers and "Position" represents the amount of numbers correct in position<br>
+            For example: Let say your guess number is '1234' and the hidden number happens to be '8243'<br>
+            The computer gives back "Number" value '3' because the numbers'234' are found both in the hidden number and your guess<br>
+            And it gives back "Position" value '1' because only the number'2' is correctly guessed in exact position.
+        </li>
+        <li>Easy level grants 10 attempts to guess the hidden number</li>
+        <li>Medium level grants 7 attempts to guess the hidden number</li>
+        <li>Hard level grants 4 attempts to guess the hidden number</li>
+        <li>You can win the game by correctly guessing the exact hidden number before you run Out of attempts</li>
+    </ul>
+</nav>
+    <nav class="back" onclick="showPage(Home)">
+        ←
+    </nav>
+</div>
+<div id="About">
+<nav class="background">
+    <p>Number Position(version 1.0)</p>
+    <P>Developed by KAD19</P>
+
+</nav>
+    <nav class="back" onclick="showPage(Home)">
+        ←
+    </nav>
+</div>
+<section id="win" class="finish">
+    <p>YOU WON</p>
+    <form>
+        <input type="submit" value="Home">
+    </form>
+</section>
+<section id="loose" class="finish">
+    <p>YOU LOST</p>
+    <form>
+        <input type="submit" value="Home">
+    </form>
+</section>
+<script>
+    btn.disabled = true;
+    num1.onkeyup = () => {
+        var n1 = document.getElementById("num1");
+        var zero = 0;
+        var minus = "-";
+        var dot = ".";
+
+        function checkDuplicate (arr) {
+            var result = false;
+            for (let i = 0; i < arr.length;i++) {
+                if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
+        var duplicate = checkDuplicate(n1.value);
+
+        if (n1.value.length == 4 && !n1.value.includes(zero) && !duplicate && !n1.value.includes(minus) && !n1.value.includes(dot)) {
+            btn.disabled = false;
+        }
+        else {
+            btn.disabled = true;
+        }
+    }
+
+</script>
+<script>
+    var r = 1;
+
+
+    function writeValues() {
+        var n1 = document.getElementById("num1").value;
+        var r1 = document.getElementById("res1");
+
+
+        var x = document.getElementById(`res${r}`);
+        x.innerHTML = n1;
+        x.style.borderBottom = '1px #00ffdd dashed';
+        var y = document.getElementById(`atm${r}`);
+        y.innerHTML = r;
+        y.style.borderBottom = '1px #00ffdd dashed';
+
+        r++;
+
+
+        btn.disabled = true;
+    }
+
+</script>
+<script>
+
+    function checkDuplicate (arr) {
+           var result = false;
+           for (let i = 0; i < arr.length;i++) {
+               if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+                   result = true;
+                   break;
+               }
+           }
+           return result;
+    }
+
+    for (i = 0 ;i < 1000;i++) {
+        var num = Math.floor(1000 + Math.random() * 9000);
+        var num = num.toString(10);
+
+        var duplicate = checkDuplicate(num);
+        var zero = 0;
+        if (!num.includes(zero) && !duplicate) {
+            var randomNumber = num;
+            break;
+        }
+        else {}
+    }
+
+</script>
+<script>
+    var diff = 'Easy';
+    function Easy() {
+        Difficulty.style.display = 'none';
+        Home.style.display = 'block';
+        diff = 'Easy';
+    }
+    function Medium() {
+        Difficulty.style.display = 'none';
+        Home.style.display = 'block';
+        diff = 'Medium';
+    }
+    function Hard() {
+        Difficulty.style.display = 'none';
+        Home.style.display = 'block';
+        diff = 'Hard';
+    }
+    var n = 1;
+
+
+    var p = 1;
+
+
+    var nc = document.querySelector("#Input");
+    nc.onsubmit = function NumberChecker() {
+        var n1 = document.getElementById("num1").value;
+        var num = 0;
+        var pos = 0;
+
+        for (var v of n1) {
+            if (randomNumber.includes(v)) {
+                num++;
+                if (n1.indexOf(v) === randomNumber.indexOf(v)) {
+                    pos++;
+                }
+            }
+        }
+
+
+        var no1 = document.getElementById("no1");
+        var y = document.getElementById(`no${n}`);
+
+        y.innerHTML = num;
+        y.style.borderBottom = '1px #00ffdd dashed';
+        n++;
+
+        var pos1 = document.getElementById("pos1");
+        var z = document.getElementById(`pos${p}`);
+
+        z.innerHTML = pos;
+        z.style.borderBottom = '1px #00ffdd dashed';
+        p++;
+
+        writeValues();
+
+        if(num == 4 && pos == 4) {
+            document.querySelectorAll('div').forEach(div => {
+                div.style.display = 'none';
+            })
+            win.style.display = 'block';
+        }
+
+        if(diff == 'Easy') {
+            if(n >= 11 && num != 4 && pos != 4) {
+                document.querySelectorAll('div').forEach(div => {
+                    div.style.display = 'none';
+                })
+                loose.style.display = 'block';
+            }
+        }
+
+        if(diff == 'Medium') {
+            if(n >= 8 && num != 4 && pos != 4) {
+                document.querySelectorAll('div').forEach(div => {
+                    div.style.display = 'none';
+                })
+                loose.style.display = 'block';
+            }
+        }
+
+        if(diff == 'Hard') {
+            if(n >= 5 && num != 4 && pos != 4) {
+                document.querySelectorAll('div').forEach(div => {
+                    div.style.display = 'none';
+                })
+                loose.style.display = 'block';
+            }
+        }
+
+        num1.value = "";
+
+        return false;
+
+
+    }
+
+</script>
+<script>
+    function showPage(page) {
+        document.querySelectorAll('div').forEach(div => {
+            div.style.display = 'none';
+        })
+        page.style.display = 'block';
+    }
+</script>
+</body>
+</html>
